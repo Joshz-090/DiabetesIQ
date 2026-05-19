@@ -1,0 +1,28 @@
+# Python environment and caches
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Node environment
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Environment variables
+.env
+.env.production
+.env.development
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Compiled Models (optional to ignore, but usually kept out of git if large)
+# ml/models/*.pkl
