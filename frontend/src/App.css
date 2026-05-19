@@ -279,6 +279,121 @@ body {
   position: sticky;
   top: 6rem;
 }
+/* Interactive Loading Styling */
+.loading-active {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  animation: slide-in 0.4s ease forwards;
+}
+
+.loading-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.pulse-spinner {
+  font-size: 3rem;
+  animation: pulse-icon 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px var(--glow-cyan));
+}
+
+.timer-badge {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background-color: var(--glow-cyan);
+  border: 1px solid var(--accent-cyan);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  box-shadow: 0 0 8px var(--glow-cyan);
+}
+
+.loading-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.loading-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  min-height: 2.7rem; /* Prevents layout shifting when text length changes */
+}
+
+/* Custom Progress Bar for loading */
+.progress-container {
+  margin-bottom: 2.5rem;
+}
+
+.progress-bar-bg {
+  background-color: var(--bg-tertiary);
+  border-radius: 50px;
+  height: 8px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid hsla(210, 20%, 25%, 0.3);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  box-shadow: 0 0 8px var(--accent-cyan);
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Free Tier Notice Alert Box */
+.free-tier-notice {
+  background-color: hsla(210, 30%, 12%, 0.5);
+  border: 1px solid hsla(210, 20%, 30%, 0.4);
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.notice-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px orange);
+}
+
+.notice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.notice-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.notice-text {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
 
 .welcome-card {
   text-align: center;

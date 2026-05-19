@@ -1,12 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ResultCard({ result, loading }) {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    let interval = null;
+    if (loading) {
+      setSeconds(0);
+      interval = setInterval(() => {
+        setSeconds((prev) => prev + 1);
+      }, 1000);
+    } else {
+      setSeconds(0);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [loading]);
+
   if (loading) {
+    let statusText = "Initializing diagnostic analysis...";
+    let stageTitle = "Connecting";
+    let progressPercentage = 5;
+
+    if (seconds < 3) {
+      statusText = "Establishing connection to the prediction server API...";
+      stageTitle = "Connecting...";
+      progressPercentage = 10;
+    } else if (seconds < 12) {
+      statusText = "Render server waking up from sleep mode. Please hold...";
+      stageTitle = "Waking up Server...";
+      progressPercentage = 28;
+    } else if (seconds < 25) {
+      statusText = "Booting python runtime environment and mounting models directory...";
+      stageTitle = "Booting Environment...";
+      progressPercentage = 50;
+    } else if (seconds < 40) {
+      statusText = "Loading ML libraries and serializing joblib weights...";
+      stageTitle = "Loading Predictor Engine...";
+      progressPercentage = 75;
+    } else if (seconds < 52) {
+      statusText = "Performing standard scaling transformations on your inputs...";
+      stageTitle = "Preprocessing Features...";
+      progressPercentage = 90;
+    } else {
+      statusText = "Inference complete! Fetching diagnostic probability scores...";
+      stageTitle = "Finalizing...";
+      progressPercentage = 97;
+    }
+
     return (
-      <div className="glass-card welcome-card">
-        <div className="welcome-icon">⚡</div>
-        <h3 className="welcome-title">Analyzing Patient Data</h3>
-        <p className="welcome-body">Running inference using pre-trained Random Forest model...</p>
+      <div className="glass-card loading-active">
+        <div className="loading-header">
+          <div className="pulse-spinner">🩺</div>
+          <span className="timer-badge">Elapsed: {seconds}s</span>
+        </div>
+        
+        <h3 className="loading-title">{stageTitle}</h3>
+        <p className="loading-body">{statusText}</p>
+
+        {/* Custom Progress Bar */}
+        <div className="progress-container">
+          <div className="progress-bar-bg">
+            <div 
+              className="progress-bar-fill" 
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+          <div className="progress-labels">
+            <span>0%</span>
+            <span>Est: 50s</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        {/* Informative Note to prevent user from leaving */}
+        <div className="free-tier-notice">
+          <span className="notice-icon">💡</span>
+          <div className="notice-content">
+            <h4 className="notice-title">Render Free-Tier Server Alert</h4>
+            <p className="notice-text">
+              The backend hosting spins down after inactivity. If the server was asleep, this initial startup takes **45 to 60 seconds**. Subsequent tests will run instantly! Thank you for waiting.
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
