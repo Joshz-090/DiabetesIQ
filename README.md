@@ -17,7 +17,7 @@ Diabetes is a chronic disease that affects millions worldwide. Early detection i
 
 ## 🚀 Live Demo
 
-🔗 **[[Deploy link here]](https://diabetes-iq.vercel.app/)**
+🔗 **[[touch here]](https://diabetes-iq.vercel.app/)**
 
 ---
 
