@@ -220,9 +220,9 @@ This project is submitted for the course **Fundamentals of Machine Learning** at
   * Eyasu Zerihun (NSR/331/16)
   * Misker Genene (NSR/1450/16)
   * Biruk Getahun (NSR/204/16)
-  * Heran Mohamed (NSR/16)
+  * Heran Mohamed (NSR/1667/16)
   * Hlina Kitachew (NSR/500/16)
-* **Instructor:** [Instructor Name]
+* **Instructor:** Mr. Melaku
 
 ---
 
