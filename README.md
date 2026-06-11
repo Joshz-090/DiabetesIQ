@@ -1,4 +1,4 @@
-# 🩺 DiabetesIQ — Diabetes Prediction Web Application
+# 🩺 DiabetesIQ — Diabetes Prediction Web Application 
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue.svg?style=flat-square&logo=python)](https://www.python.org/)
 [![React](https://img.shields.io/badge/React-18-blue.svg?style=flat-square&logo=react)](https://react.dev/)
